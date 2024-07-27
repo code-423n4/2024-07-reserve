@@ -30,16 +30,28 @@ Some of the checklists in this doc are for **C4 (🐺)** and some of them are fo
 # Reserve audit details
 - Total Prize Pool: $187,500 in USDC
   - HM awards: $120,000 in USDC
+  - Pro League Side Pool $30,000 in USDC
   - QA awards: $5,000 in USDC
   - Judge awards: $11,500 in USDC
   - Validator awards: $6,000 USDC
   - Scout awards: $1,000 in USDC
-  - Mitigation Review: $14,000 USDC (*Opportunity goes to top 3 backstage wardens based on placement in this audit who RSVP.*)
+  - Mitigation Review: $14,000 in USDC (*Opportunity goes to top 3 backstage wardens based on placement in this audit who RSVP.*)
 - Join [C4 Discord](https://discord.gg/code4rena) to register
 - Submit findings [using the C4 form](https://code4rena.com/contests/2024-07-reserve/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
 - Starts July 29, 2024 20:00 UTC
 - Ends August 19, 2024 20:00 UTC
+
+## Pro League Side Pool
+- Two Pro Leaguers are designated as leads for the audit.
+- 60/40 split among leads based on their [Gatherer score](https://docs.code4rena.com/awarding/incentive-model-and-awards#bonuses-for-top-competitors).
+- If a lead ranks outside the top 5 (by [HM award algorithm](https://docs.code4rena.com/awarding/incentive-model-and-awards#high-and-medium-risk-bugs))
+    - 33.3% of their share of the side pool goes to the Dark Horse bonus pool
+    - 66.6% of their share of the side pool is refunded to sponsor
+- Pro League Auditors also compete for a portion of HM award and are eligible for Hunter/Gatherer bonuses
+
+## Dark Horse bonus
+- The Dark Horse bonus pool is distributed to the top 5 ranked participants using the [QA curve](). (If no lead ranks outside the top 5, no Dark Horse bonus is awarded.)
 
 ## Automated Findings / Publicly Known Issues
 
