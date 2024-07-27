@@ -45,13 +45,15 @@ Some of the checklists in this doc are for **C4 (🐺)** and some of them are fo
 ### Pro League Side Pool
 - Two Pro Leaguers are designated as leads for the audit.
 - 60/40 split among leads based on their [Gatherer score](https://docs.code4rena.com/awarding/incentive-model-and-awards#bonuses-for-top-competitors).
+- If a lead ranks outside the top 2 (by [HM award algorithm](https://docs.code4rena.com/awarding/incentive-model-and-awards#high-and-medium-risk-bugs))
+    - 33.3% of their share of the side pool goes to the Dark Horse bonus pool
 - If a lead ranks outside the top 5 (by [HM award algorithm](https://docs.code4rena.com/awarding/incentive-model-and-awards#high-and-medium-risk-bugs))
     - 33.3% of their share of the side pool goes to the Dark Horse bonus pool
     - 66.6% of their share of the side pool is refunded to sponsor
 - Pro League Auditors also compete for a portion of HM award and are eligible for Hunter/Gatherer bonuses
 
 ### Dark Horse bonus
-- The Dark Horse bonus pool is distributed to the top 5 ranked participants using the [QA curve](). (If no lead ranks outside the top 5, no Dark Horse bonus is awarded.)
+- The Dark Horse bonus pool is distributed to the top 5 ranked participants using the [QA curve](). (If no lead ranks outside the top 2, no Dark Horse bonus is awarded.)
 
 ## Automated Findings / Publicly Known Issues
 
