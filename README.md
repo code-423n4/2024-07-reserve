@@ -53,7 +53,7 @@ Some of the checklists in this doc are for **C4 (🐺)** and some of them are fo
 - Pro League Auditors also compete for a portion of HM award and are eligible for Hunter/Gatherer bonuses
 
 ### Dark Horse bonus
-- The Dark Horse bonus pool is distributed to the ranked participants beating or typing a lead (using the QA curve). (If no lead ranks outside the top 2, no Dark Horse bonus is awarded.)
+- The Dark Horse bonus pool is distributed to the ranked participants beating or tying a lead auditor (using the QA curve). (If no lead ranks outside the top 2, no Dark Horse bonus is awarded.)
 
 ## Automated Findings / Publicly Known Issues
 
