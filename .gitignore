@@ -1,0 +1,45 @@
+artifacts/
+build
+cache/
+coverage.json
+coverage/
+crytic-export/
+design-docs
+echidna-corpus/
+flatten/
+node_modules/
+reports
+typechain/
+scripts/addresses/31337*
+
+.openzeppelin/unknown-*.json
+.env
+.vscode/
+/local/
+
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+\#*\#
+.\#*
+
+*.orig
+.idea
+
+# Scripts for local/test interactions
+scripts/test.ts
+scripts/playground.ts
+
+# Serialized proposals
+tasks/validation/proposals/proposal-*.json
+
+# tenderly deployment/verification artifacts
+deployments/
+backtests/
+
+# output files
+output.log

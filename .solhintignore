@@ -1,0 +1,22 @@
+node_modules
+
+# Ignore the style of pure-test contracts
+
+test/
+mocks/
+fuzz/
+
+# Ignore the style of external contracts
+
+aave/
+
+# The Fixed library defines a custom type and crashes the solhint parser
+
+contracts/libraries/Fixed.sol
+
+# Ignore vendord files
+
+contracts/vendor
+contracts/plugins/assets/compound/vendor
+contracts/plugins/assets/curve/crv
+contracts/plugins/assets/curve/cvx

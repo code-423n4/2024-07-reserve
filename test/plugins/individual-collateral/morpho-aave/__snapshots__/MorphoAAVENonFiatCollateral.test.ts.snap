@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - WBTC collateral functionality Gas Reporting ERC20 transfer 1`] = `73881`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - WBTC collateral functionality Gas Reporting ERC20 transfer 2`] = `56781`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - WBTC collateral functionality Gas Reporting refresh() after full price timeout 1`] = `133634`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - WBTC collateral functionality Gas Reporting refresh() after full price timeout 2`] = `129165`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - WBTC collateral functionality Gas Reporting refresh() after hard default 1`] = `199810`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - WBTC collateral functionality Gas Reporting refresh() after hard default 2`] = `192127`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - WBTC collateral functionality Gas Reporting refresh() after oracle timeout 1`] = `182878`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - WBTC collateral functionality Gas Reporting refresh() after oracle timeout 2`] = `178409`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - WBTC collateral functionality Gas Reporting refresh() after soft default 1`] = `192065`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - WBTC collateral functionality Gas Reporting refresh() after soft default 2`] = `192065`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - WBTC collateral functionality Gas Reporting refresh() during SOUND 1`] = `192124`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - WBTC collateral functionality Gas Reporting refresh() during SOUND 2`] = `192124`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - WBTC collateral functionality Gas Reporting refresh() during soft default 1`] = `199675`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - WBTC collateral functionality Gas Reporting refresh() during soft default 2`] = `192406`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - stETH collateral functionality Gas Reporting ERC20 transfer 1`] = `73881`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - stETH collateral functionality Gas Reporting ERC20 transfer 2`] = `56781`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - stETH collateral functionality Gas Reporting refresh() after full price timeout 1`] = `167266`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - stETH collateral functionality Gas Reporting refresh() after full price timeout 2`] = `162797`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - stETH collateral functionality Gas Reporting refresh() after hard default 1`] = `239074`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - stETH collateral functionality Gas Reporting refresh() after hard default 2`] = `231391`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - stETH collateral functionality Gas Reporting refresh() after oracle timeout 1`] = `222142`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - stETH collateral functionality Gas Reporting refresh() after oracle timeout 2`] = `217673`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - stETH collateral functionality Gas Reporting refresh() after soft default 1`] = `231329`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - stETH collateral functionality Gas Reporting refresh() after soft default 2`] = `231329`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - stETH collateral functionality Gas Reporting refresh() during SOUND 1`] = `231388`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - stETH collateral functionality Gas Reporting refresh() during SOUND 2`] = `231388`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - stETH collateral functionality Gas Reporting refresh() during soft default 1`] = `238939`;
+
+exports[`Collateral: MorphoAAVEV2NonFiatCollateral - stETH collateral functionality Gas Reporting refresh() during soft default 2`] = `231670`;
