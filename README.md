@@ -32,8 +32,8 @@ The 4naly3er report can be found [here](https://github.com/code-423n4/2024-07-re
 
 _Note for C4 wardens: Anything included in this `Automated Findings / Publicly Known Issues` section is considered a publicly known issue and is ineligible for awards._
 
-- Any acknowledged issues reported in previous audits: https://github.com/code-423n4/2024-07-reserve/tree/main/audits
-- Low-value tokens, details here: https://github.com/code-423n4/2024-07-reserve/blob/main/docs/system-design.md#collateral-decimals-restriction
+- Any acknowledged issues reported in previous audits: [/audits](https://github.com/code-423n4/2024-07-reserve/tree/main/audits)
+- Low-value tokens, details here: [system-design.md#collateral-decimals-restriction](https://github.com/code-423n4/2024-07-reserve/blob/main/docs/system-design.md#collateral-decimals-restriction)
 - Distributor rounding error at small DAO fees: non-negligible but deemed acceptable
 - Changing distributions can send unintended amounts of funds to the veRSR DAO
 - require(req.sellAmount > 1) in RevenueTrader no longer ensures sellAmount in {tok} units is greater zero
@@ -68,8 +68,8 @@ See also [README-sponsor.md](https://github.com/code-423n4/2024-07-reserve/blob/
 
 ## Links
 
-- **Previous audits:**  Quite a few audits, all uploaded here: https://github.com/code-423n4/2024-07-reserve/tree/main/audits
-- **Documentation:** https://reserve.org/protocol/ and https://github.com/code-423n4/2024-07-reserve/tree/main/docs
+- **Previous audits:**  See: [/audits](https://github.com/code-423n4/2024-07-reserve/tree/main/audits)
+- **Documentation:** https://reserve.org/protocol/ and [/docs](https://github.com/code-423n4/2024-07-reserve/tree/main/docs)
 - **Website:** https://reserve.org
 - **X/Twitter:** https://x.com/reserveprotocol
 - **Discord:** https://discord.gg/reserveprotocol
