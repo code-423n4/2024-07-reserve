@@ -226,7 +226,10 @@ See [docs/dev-env.md](https://github.com/code-423n4/2024-07-reserve/blob/main/do
 ```bash
 git clone https://github.com/code-423n4/2024-07-reserve
 cd 2024-07-reserve
+
+cp .env.example .env # fill out the MAINNET_RPC_URL variable
 yarn
+
 yarn test:p1
 yarn test:plugins
 yarn test:integration
