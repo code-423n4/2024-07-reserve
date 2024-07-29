@@ -188,13 +188,14 @@ Any file not listed in the scope table above.
 Any invariants that hold within a contract are documented within the contract itself. 
 
 ## Attack ideas (where to focus for bugs)
-Would prefer not to guide wardens to particular areas. The protocol has _mostly_ received differential audits that examine the impact of the marginal change. Our intent with this audit is to not bias the auditors and allow them to survey the protocol generally, in order to look for issues that may have been missed along the way via the differential structure.
+The protocol has mostly received differential audits that examine the impact of the marginal change. Our intent with this audit is for the auditors to survey the protocol generally, in order to look for issues that may have been missed along the way via the differential structure.
 
 That said, some particular areas our attention has recently been on:
 - Impact of oracleErrors on recollateralization
 - Addition of issuance premium to prevent toxic issuance during partial de-pegs of collateral
 - Stability of individual collateral markets as it relates to collateral plugin configuration
-- ...not exhaustive
+
+(This is not an exhaustive list.)
 
 
 ## All trusted roles in the protocol
