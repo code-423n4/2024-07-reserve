@@ -158,7 +158,7 @@ Any file not listed in the scope table above.
 | [Doesn't revert on failure](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#no-revert-on-failure)                                                   |  In scope   |
 | [Multiple token addresses](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#revert-on-zero-value-transfers)                                          | Out of scope    |
 | [Low decimals ( < 6)](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#low-decimals)                                                                 | Out of scope    |
-| [High decimals ( > 18)](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#high-decimals)                                                              | In scope ([up to 21 decimals](https://github.com/code-423n4/2024-07-reserve/blob/main/docs/system-design.md#collateral-decimals-restriction)    |
+| [High decimals ( > 18)](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#high-decimals)                                                              | In scope ([up to 21 decimals](https://github.com/code-423n4/2024-07-reserve/blob/main/docs/system-design.md#collateral-decimals-restriction))    |
 | [Blocklists](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#tokens-with-blocklists)                                                                | In scope    |
 
 ### External integrations (e.g., Uniswap) behavior in scope:
