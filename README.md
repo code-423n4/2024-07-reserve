@@ -8,7 +8,7 @@
   - Scout awards: $1,000 in USDC
   - Mitigation Review: $14,000 in USDC (*Opportunity goes to top 3 backstage wardens based on placement in this audit who RSVP.*)
 - Join [C4 Discord](https://discord.gg/code4rena) to register
-- Submit findings [using the C4 form](https://code4rena.com/contests/2024-07-reserve/submit)
+- Submit findings [using the C4 form](https://code4rena.com/audits/2024-07-reserve-core/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
 - Starts July 29, 2024 20:00 UTC
 - Ends August 19, 2024 20:00 UTC
