@@ -50,8 +50,6 @@ _Note for C4 wardens: Anything included in this `Automated Findings / Publicly K
 
 The Reserve Protocol enables a class of token called RToken: self-issued tokens backed by a rebalancing basket of collateral. While the protocol enables any number of RTokens to be created, further discussion is limited to the characterization of a single RToken instance.
 
-
-
 RTokens can be minted by depositing a basket of _collateral tokens_, and redeemed for the basket as well. Thus, an RToken will tend to trade at the market value of the entire basket that backs it, as any lower or higher price could be arbitraged.
 
 The definition of the issuance/redemption basket is set dynamically on a block-by-block basis with respect to a _reference basket_. While the RToken often does its internal calculus in terms of a single unit of account (USD), what constitutes appreciation is entirely a function of the reference basket, which is a linear combination of reference units.
@@ -64,18 +62,18 @@ As with any smart contract application, the actual behavior may vary from the in
 
 For a much more detailed explanation of the economic design, including an hour-long explainer video (!) see [the Reserve website](https://reserve.org/protocol/2021_version/).
 
-See also [README-sponsor.md](https://github.com/code-423n4/2024-07-reserve/blob/main/README-sponsor.md) for more details.
+Additionally, see original repo [here](https://github.com/reserve-protocol/protocol/tree/4.0.0) and [Release 4.0.0](https://github.com/reserve-protocol/protocol/pull/1127) PR which is in audit here.
 
 ## Links
 
 - **Previous audits:**  See: [/audits](https://github.com/code-423n4/2024-07-reserve/tree/main/audits)
 - **Documentation:** https://reserve.org/protocol/ and [/docs](https://github.com/code-423n4/2024-07-reserve/tree/main/docs)
+- **Repository:** https://github.com/reserve-protocol/protocol
 - **Website:** https://reserve.org
 - **X/Twitter:** https://x.com/reserveprotocol
 - **Discord:** https://discord.gg/reserveprotocol
 
 ---
-
 
 # Scope
 
@@ -197,32 +195,31 @@ That said, some particular areas our attention has recently been on:
 
 (This is not an exhaustive list.)
 
-
 ## All trusted roles in the protocol
 
-✅ TODO: Description
 
 | Role                             | Description                                      |
 |----------------------------------|--------------------------------------------------|
-| Issuance pauser                  |                                                  |
-| Trading pauser                   |                                                  |
-| Short freeze                     |                                                  |
-| Long freeze                      |                                                  |
-| Owner                            |                                                  |
-| Guardian (ie timelock canceller) |                                                  |
-| RoleRegistry.owner               |                                                  |
-| RoleRegistry.emergencyCouncil    |                                                  |
+| Issuance pauser                  | Ability to pause issuance |
+| Trading pauser                   | Ability to pause trading |
+| Short freeze                     | Short Freezer as described in System Roles |
+| Long freeze                      | Long Freezer as described in System Roles |
+| Owner                            | Governance |
+| Guardian (ie timelock canceller) | Vetoer after a malicious proposal is passed |
+| RoleRegistry.owner               | veRSR Reserve DAO |
+| RoleRegistry.emergencyCouncil    | Emergency DAO Multisig for veRSR Reserve DAO |
+
+Additionally see [System Roles](https://reserve.org/protocol/smart_contracts/#system-states-and-roles) section in Reserve Protocol Documentation.
 
 ## Describe any novel or unique curve logic or mathematical models implemented in the contracts:
 
-RecollateralizationLib implements a bespoke recollateralization algorithm that tends to have lots of complexity in it and deserves special attention. 
+RecollateralizationLib implements a bespoke recollateralization algorithm that tends to have lots of complexity in it and deserves special attention.
 
 Otherwise the math everywhere else in the protocol is fairly straightforward. 
 
-
 ## Running tests
 
-See [docs/dev-env.md](https://github.com/code-423n4/2024-07-reserve/blob/main/docs/dev-env.md) for more details
+See [docs/dev-env.md](https://github.com/code-423n4/2024-07-reserve/blob/main/docs/dev-env.md) for more details. Note, you can also run these in the original repo.
 
 ```bash
 git clone https://github.com/code-423n4/2024-07-reserve
@@ -241,7 +238,6 @@ yarn test:coverage
 # if you get 'FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory' then increase the heap limit
 # see https://stackoverflow.com/a/59572966
 ```
-
 
 ## Miscellaneous
 Employees of Reserve Protocol and employees' family members are ineligible to participate in this audit.
