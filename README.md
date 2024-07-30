@@ -82,43 +82,45 @@ Additionally, see original repo [here](https://github.com/reserve-protocol/proto
 ### Files in scope
 
 
-| File   | Logic Contracts | Interfaces | nSLOC | Purpose | Libraries used |
-| ------ | --------------- | ---------- | ----- | -----   | ------------ |
-| /contracts/libraries/Allowance.sol | 1| 1 | 18 | ||
-| /contracts/libraries/Array.sol | 1| **** | 20 | |@openzeppelin/contracts/token/ERC20/IERC20.sol|
-| /contracts/libraries/Fixed.sol | 1| **** | 342 | ||
-| /contracts/libraries/Permit.sol | 1| **** | 23 | |@openzeppelin/contracts-upgradeable/utils/AddressUpgradeable.sol<br>@openzeppelin/contracts-upgradeable/utils/cryptography/SignatureCheckerUpgradeable.sol|
-| /contracts/libraries/String.sol | 1| **** | 15 | ||
-| /contracts/libraries/Throttle.sol | 1| **** | 40 | ||
-| /contracts/mixins/Auth.sol | 1| **** | 91 | |@openzeppelin/contracts-upgradeable/access/AccessControlUpgradeable.sol|
-| /contracts/mixins/ComponentRegistry.sol | 1| **** | 80 | |@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol<br>@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol|
-| /contracts/mixins/Versioned.sol | 1| **** | 8 | ||
-| /contracts/p1/AssetRegistry.sol | 1| **** | 153 | |@openzeppelin/contracts/token/ERC20/IERC20.sol<br>@openzeppelin/contracts/utils/structs/EnumerableSet.sol|
-| /contracts/p1/BackingManager.sol | 1| **** | 170 | |@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol|
-| /contracts/p1/BasketHandler.sol | 1| **** | 376 | |@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol<br>@openzeppelin/contracts/utils/structs/EnumerableMap.sol<br>@openzeppelin/contracts/utils/structs/EnumerableSet.sol|
-| /contracts/p1/Broker.sol | 1| **** | 179 | |@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol<br>@openzeppelin/contracts/utils/structs/EnumerableSet.sol<br>@openzeppelin/contracts/proxy/Clones.sol|
-| /contracts/p1/Deployer.sol | 1| **** | 189 | |@openzeppelin/contracts/proxy/Clones.sol<br>@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol<br>@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol|
-| /contracts/p1/Distributor.sol | 1| **** | 168 | |@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol<br>@openzeppelin/contracts/utils/structs/EnumerableSet.sol|
-| /contracts/p1/Furnace.sol | 1| **** | 35 | ||
-| /contracts/p1/Main.sol | 1| **** | 98 | |@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol<br>@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol<br>@openzeppelin/contracts-upgradeable/access/OwnableUpgradeable.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol|
-| /contracts/p1/RToken.sol | 1| **** | 229 | |@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol|
-| /contracts/p1/RevenueTrader.sol | 1| **** | 115 | |@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol|
-| /contracts/p1/StRSR.sol | 1| **** | 433 | |@openzeppelin/contracts-upgradeable/interfaces/IERC1271Upgradeable.sol<br>@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol<br>@openzeppelin/contracts-upgradeable/utils/cryptography/SignatureCheckerUpgradeable.sol<br>@openzeppelin/contracts-upgradeable/utils/cryptography/draft-EIP712Upgradeable.sol<br>@openzeppelin/contracts-upgradeable/utils/CountersUpgradeable.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol|
-| /contracts/p1/StRSRVotes.sol | 1| **** | 173 | |@openzeppelin/contracts-upgradeable/utils/math/SafeCastUpgradeable.sol<br>@openzeppelin/contracts-upgradeable/utils/math/MathUpgradeable.sol<br>@openzeppelin/contracts-upgradeable/interfaces/IERC5805Upgradeable.sol|
-| /contracts/p1/mixins/BasketLib.sol | 1| **** | 159 | |@openzeppelin/contracts/token/ERC20/IERC20.sol<br>@openzeppelin/contracts/utils/structs/EnumerableSet.sol<br>@openzeppelin/contracts/utils/structs/EnumerableMap.sol|
-| /contracts/p1/mixins/Component.sol | 1| **** | 44 | |@openzeppelin/contracts-upgradeable/proxy/utils/Initializable.sol<br>@openzeppelin/contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol<br>@openzeppelin/contracts-upgradeable/utils/ContextUpgradeable.sol|
-| /contracts/p1/mixins/RecollateralizationLib.sol | 1| **** | 163 | |@openzeppelin/contracts/token/ERC20/IERC20.sol|
-| /contracts/p1/mixins/RewardableLib.sol | 1| **** | 15 | |@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol<br>@openzeppelin/contracts/utils/Address.sol|
-| /contracts/p1/mixins/TradeLib.sol | 1| **** | 78 | |@openzeppelin/contracts/token/ERC20/IERC20.sol|
-| /contracts/p1/mixins/Trading.sol | 1| **** | 65 | |@openzeppelin/contracts-upgradeable/security/ReentrancyGuardUpgradeable.sol<br>@openzeppelin/contracts/token/ERC20/IERC20.sol|
-| /contracts/plugins/governance/Governance.sol | 1| **** | 100 | |@openzeppelin/contracts/governance/Governor.sol<br>@openzeppelin/contracts/governance/extensions/GovernorCountingSimple.sol<br>@openzeppelin/contracts/governance/extensions/GovernorSettings.sol<br>@openzeppelin/contracts/governance/extensions/GovernorTimelockControl.sol<br>@openzeppelin/contracts/governance/extensions/GovernorVotes.sol<br>@openzeppelin/contracts/governance/extensions/GovernorVotesQuorumFraction.sol|
-| /contracts/plugins/trading/DutchTrade.sol | 1| 1 | 164 | |@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol<br>@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol|
-| /contracts/plugins/trading/GnosisTrade.sol | 1| **** | 110 | |@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol<br>@openzeppelin/contracts/utils/math/Math.sol<br>@openzeppelin/contracts-upgradeable/token/ERC20/utils/SafeERC20Upgradeable.sol|
-| /contracts/registry/AssetPluginRegistry.sol | 1| **** | 85 | |@openzeppelin/contracts/access/Ownable.sol|
-| /contracts/registry/DAOFeeRegistry.sol | 1| **** | 67 | ||
-| /contracts/registry/RoleRegistry.sol | 1| **** | 17 | |@openzeppelin/contracts/access/AccessControlEnumerable.sol|
-| /contracts/registry/VersionRegistry.sol | 1| **** | 57 | ||
-| **Totals** | **34** | **2** | **4079** | | |
+
+| File                                            | nSLOC    |
+| ----------------------------------------------- | -------- |
+| /contracts/libraries/Allowance.sol              | 18       |
+| /contracts/libraries/Array.sol                  | 20       |
+| /contracts/libraries/Fixed.sol                  | 342      |
+| /contracts/libraries/Permit.sol                 | 23       |
+| /contracts/libraries/String.sol                 | 15       |
+| /contracts/libraries/Throttle.sol               | 40       |
+| /contracts/mixins/Auth.sol                      | 91       |
+| /contracts/mixins/ComponentRegistry.sol         | 80       |
+| /contracts/mixins/Versioned.sol                 | 8        |
+| /contracts/p1/AssetRegistry.sol                 | 153      |
+| /contracts/p1/BackingManager.sol                | 170      |
+| /contracts/p1/BasketHandler.sol                 | 376      |
+| /contracts/p1/Broker.sol                        | 179      |
+| /contracts/p1/Deployer.sol                      | 189      |
+| /contracts/p1/Distributor.sol                   | 168      |
+| /contracts/p1/Furnace.sol                       | 35       |
+| /contracts/p1/Main.sol                          | 98       |
+| /contracts/p1/RToken.sol                        | 229      |
+| /contracts/p1/RevenueTrader.sol                 | 115      |
+| /contracts/p1/StRSR.sol                         | 433      |
+| /contracts/p1/StRSRVotes.sol                    | 173      |
+| /contracts/p1/mixins/BasketLib.sol              | 159      |
+| /contracts/p1/mixins/Component.sol              | 44       |
+| /contracts/p1/mixins/RecollateralizationLib.sol | 163      |
+| /contracts/p1/mixins/RewardableLib.sol          | 15       |
+| /contracts/p1/mixins/TradeLib.sol               | 78       |
+| /contracts/p1/mixins/Trading.sol                | 65       |
+| /contracts/plugins/governance/Governance.sol    | 100      |
+| /contracts/plugins/trading/DutchTrade.sol       | 164      |
+| /contracts/plugins/trading/GnosisTrade.sol      | 110      |
+| /contracts/registry/AssetPluginRegistry.sol     | 85       |
+| /contracts/registry/DAOFeeRegistry.sol          | 67       |
+| /contracts/registry/RoleRegistry.sol            | 17       |
+| /contracts/registry/VersionRegistry.sol         | 57       |
+| **Totals**                                      | **4079** |
+
 
 ### Files out of scope
 
