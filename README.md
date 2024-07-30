@@ -239,13 +239,5 @@ yarn test:coverage
 # see https://stackoverflow.com/a/59572966
 ```
 
-#### The following test files fail on the audit commit
-
-- `test/registries/DAOFeeRegistry.test.ts`
-- `test/registries/VersionRegistry.test.ts`
-- `test/registries/AssetPluginRegistry.test.ts`
-
-These failures constitute a known issue.
-
 ## Miscellaneous
 Employees of Reserve Protocol and employees' family members are ineligible to participate in this audit.
