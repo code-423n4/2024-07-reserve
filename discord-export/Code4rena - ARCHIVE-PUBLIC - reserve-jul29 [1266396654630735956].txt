@@ -1,0 +1,977 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-PUBLIC / reserve-jul29
+==============================================================
+
+[07/29/2024 13:17] kartoonjoy (pinned)
+👋 Hello and welcome to the audit channel for the **$187,500 in USDC Reserve Core** audit!
+
+📆 Audit opens 07/29/2024 20:00 (20:00 UTC) and runs through 08/19/2024 20:00 (20:00 UTC) (21 days).
+
+Please give a warm welcome to the Reserve team, particularly @Akshat | Reserve and @tbrent | Reserve, who will be available for questions either here in the channel or via a PRIVATE thread in the PST timezone(s). 
+
+🤖 **Documentation bot assistance:** For general questions about the codebase, give our documentation bot a try, by tagging `@Docs Wolf` in any thread (private or public) and asking your question. The bot will make its best attempt to answer based on the codebase and documentation, and link you to relevant resources.  
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this audit, consider enabling notifications for this channel. 🐺 ⏰
+
+Audit Page: https://code4rena.com/audits/2024-07-reserve-core#top
+
+{Reactions}
+🔥 (4) 
+
+[07/29/2024 13:17] kartoonjoy
+Pinned a message.
+
+
+[07/29/2024 20:00] cloudellie (pinned)
+Excited to announce that the following Pro League leads will be competing in this audit: 
+
+- @0x52 
+- Team RadiantLabs: @EV_om + @3DOC
+
+🔥 :code4rena:
+
+{Reactions}
+🔥 (21) 
+
+[07/29/2024 20:04] itsmetechjay
+Pinned a message.
+
+
+[07/29/2024 20:19] tamayonft
+What is the dark pool
+
+
+[07/29/2024 20:26] sockdrawermoney
+here's a little gist I jammed out about how Dark Horse incentives work https://gist.github.com/sockdrawermoney/ad102b11bca03342944ce7d5f3027739
+
+
+[07/29/2024 20:27] sockdrawermoney
+In terms of how it works for the Reserve Core audit _specifically_, you can find that here https://discord.com/channels/810916927919620096/958800160870240286/1266836423638782076
+
+
+[07/29/2024 20:29] tamayonft
+The dark pool  is the same as pro league side pool? Which is 30k
+
+
+[07/29/2024 20:49] sockdrawermoney
+Sort of. beat Pro Leaguers and you can win a share of the side pool.
+
+
+[07/29/2024 20:54] 0xwizard
+great counter measure
+
+
+[07/29/2024 20:55] 0xwizard
+it feels fair to try and compete with pro league
+
+
+[07/29/2024 20:56] tamayonft
+Question to the sponsors can we audit this version with any previues knowledge about the past version?
+
+
+[07/29/2024 20:56] tamayonft
+Is this a  big update?
+
+
+[07/29/2024 21:21] cloudellie (pinned)
+Heads up wardens: we've given the Reserve team the go-ahead to merge [this PR](https://github.com/reserve-protocol/protocol/pull/1176) that fixes some broken tests, so this will result in a slight tweak to the audit repo. We'll post again once it's been merged.
+
+{Reactions}
+✅ (2) 
+
+[07/29/2024 22:29] tbrent
+You can check the CHANGELOG out, but in brief it should not be too large an update. The core protocol functionality has remained the same. The main 3 additions have been (i) Registries to support whitelists; (ii) expand decimal support to 21 (with caveats); and (iii) add new "issuance premium" mechanism.
+
+
+[07/29/2024 22:31] tbrent
+Only (iii) is a real change to the economics / accounting of the protocol.
+
+
+[07/30/2024 00:56] cloudellie (pinned)
+Update: this PR has now been merged, and the audit repo `README` has been [updated](https://github.com/code-423n4/2024-07-reserve/commit/25db7f16a9f5740a602f7a6af0a8714dc2a0203d) accordingly.
+
+
+[07/30/2024 00:56] cloudellie
+Pinned a message.
+
+
+[07/30/2024 00:56] cloudellie
+Pinned a message.
+
+
+[07/30/2024 01:29] gscoder
+why there is no foundry test files ?
+
+
+[07/30/2024 03:55] samuselderg
+I believe it's a hardhat project, so the tests will be js for use with hardhat
+
+{Reactions}
+👍 (3) 
+
+[07/30/2024 06:45] 0xbeastboy
+Guys any code walkthrough on this?
+
+
+[07/30/2024 07:29] kriko.eth
+Hi:) a quick question - `contracts/p0` is the current version and currently deployed? And `contracts/p1` is the upgrade, correct? 😄
+
+
+[07/30/2024 10:12] mahdi9606
+which part of code is unaudited ?
+
+
+[07/30/2024 12:05] julianmrodri
+`p0` is meant to be a "simplified" version of the protocol which was only used for devopment.. .the code in `p1` is the one that's relevant for the audit.
+
+
+[07/30/2024 12:08] julianmrodri
+No part of the code is unaudited. All our deployed code was audited at some point. This is meant to be a fresh new review of our 4.0.0 planned release. there are folders out of scope like "p0" which are not relevant because its not production code.
+
+
+[07/30/2024 12:27] uaarrr
+are there any off chain  mechanisms ?
+
+
+[07/30/2024 12:32] kriko.eth
+Cool, so what version of contracts is currently deployed?
+
+
+[07/30/2024 12:33] julianmrodri
+I dont think so. Can you expand on what type of mechanisms you refer?
+
+
+[07/30/2024 12:36] julianmrodri
+4.0.0 was not deployed yet. If you look at the current version of the protocol running for existing RTokens is 3.4.0 (prior version not the one being audited now)
+
+{Reactions}
+💛 
+
+[07/30/2024 13:17] uaarrr
+i meant back end code that executes certain function(s)
+
+
+[07/30/2024 13:18] julianmrodri
+No,  there are several functions that can be called by anybody to trigger certain events (like auctions, revenue distribution ,etc) but everything happens on chain. There is no backend core process that we keep.
+
+
+[07/30/2024 13:18] julianmrodri
+The audit is full Solidity
+
+
+[07/30/2024 13:19] uaarrr
+thanks for clarifying
+
+{Reactions}
+👍 
+
+[07/30/2024 13:30] tamayonft
+hey with that being say its better try this code as a new fresh project
+
+
+[07/30/2024 13:43] julianmrodri
+Not sure I understand, p0 and p1 has nothing to do with if you treat it or not as a fresh project. the code in p0 can be ignored.  The code in P1 is the relevant one
+
+
+[07/30/2024 14:01] tamayonft
+What I mean by that is if the p1 is all what we need to proper understand the project, or i need some aditional part of the anterior version of the project
+
+
+[07/30/2024 14:08] julianmrodri
+Ok I see the confusion. But yes, you can ignore completely p0. It is not a previous version of the project, its more of a prototype version. Just focus on P1
+
+
+[07/30/2024 14:31] 0xozovehe
+Is there anywhere we can see the differences between the last audited version and the current one?
+
+
+[07/30/2024 15:34] akshatmittal
+You can disregard p0, the focus will remain on p1 and that is the one that's fully tested and deployed.
+
+
+[07/30/2024 15:35] akshatmittal (pinned)
+The 4.0.0 PR is linked in the overview section, it contains the diff from the previous version/audit. (https://github.com/reserve-protocol/protocol/pull/1127)
+
+{Embed}
+https://github.com/reserve-protocol/protocol/pull/1127
+Release r4.0.0 by akshatmittal · Pull Request #1127 · reserve-proto...
+Code4rena - ARCHIVE-PUBLIC - reserve-jul29 [1266396654630735956].txt_Files/1127-39596
+
+{Reactions}
+👍 
+
+[07/30/2024 16:01] kartoonjoy
+Pinned a message.
+
+
+[07/30/2024 17:02] akshatmittal (pinned)
+Please tag myself, @tbrent | Reserve and @Julian | Reserve when creating new private threads!
+
+{Reactions}
+☝️ 
+
+[07/30/2024 17:28] kartoonjoy
+Pinned a message.
+
+
+[07/31/2024 07:09] holydevoti0n
+So as far as I understood the protocol has been audited several times and as described on the scope this contest is to review "all" the scope audited before. But the "4.0.0"  PR is not audited? Sorry for the confusion, just wanted to clarify this part.
+
+
+[07/31/2024 07:14] viraz4331
+@Akshat | Reserve @tbrent | Reserve can you check pvt thread
+
+
+[07/31/2024 13:05] julianmrodri
+the PR for 4.0.0 was also audited you can find it in the `/audits` folder a file named `Reserve_PR_4_0_0_v1.pdf`
+
+{Reactions}
+🫡 thankyou 
+
+[07/31/2024 13:13] kriko.eth
+Hi, what does the "p0" and "p1" stand for? I know p0 is irrelevant but I'm curious what the p should stand for 😄
+
+
+[07/31/2024 13:17] 4gontuk
+I think, priority level
+
+
+[07/31/2024 13:19] julianmrodri
+prototype version 0, 1, etc.. originally we planned to have several versions but we ended up with just two.. a prototype p0, and a final version p1...
+
+{Reactions}
+💛 ✅ 
+
+[07/31/2024 13:20] 4gontuk
+Thanks
+
+
+[07/31/2024 13:36] tamayonft
+i saw that the trading folder was modified but is not in the scope
+
+
+[07/31/2024 14:15] julianmrodri
+the contracts in `plugin/trading` are in scope GnosisTrade and DutchTrade
+
+
+[07/31/2024 15:34] akshatmittal
+That's correct. The protocol has been audited several times, and r4.0.0 is the latest iteration. However, for this audit, the ENTIRE protocol is under audit regardless of if it is a new change or an old one. If you don't care about code history, treat the entire codebase as new. The changes PR is only available for additional information, not as an indication of what needs review.
+
+{Reactions}
+❤️ 💛 ☝️ 
+
+[07/31/2024 15:58] tbrent (pinned)
+Update: if wardens could tag @Akshat | Reserve @tbrent | Reserve and @Julian | Reserve in all private threads, that would be great. Thanks
+
+
+[07/31/2024 16:26] kartoonjoy
+Pinned a message.
+
+
+[07/31/2024 18:48] cyberghost993
+Started a thread.
+
+
+[07/31/2024 20:04] tamayonft
+Sorry for the silly questions im still understanding the project if this rtoken will be or is just one instance of this token right?
+
+
+[07/31/2024 20:22] 0xauditism
+I think there is potentially many RTokens
+
+{Reactions}
+👍 
+
+[07/31/2024 20:23] 0xauditism
+and one RSR
+
+{Reactions}
+👍 
+
+[07/31/2024 21:17] julianmrodri
+The project is live, there are many RTokens. The protocol is a factory that allows you to create Rtokens.  RSR is just one token shared/used among all RTokens. You can check our UI to get a vibe of the different components: https://app.reserve.org/
+
+
+[08/01/2024 00:49] tamayonft
+thank so much
+
+
+[08/01/2024 07:45] kriko.eth
+Guys, after some time of running tests I get this error
+
+It gets fixed after deleting the cache folder, but wanted to point it out since it happened twice already
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - reserve-jul29 [1266396654630735956].txt_Files/image-90D62.png
+
+
+[08/01/2024 10:13] ev_om
+Should we treat all contracts in scope as if the project was to be freshly deployed, or take into account that some are live and will be upgraded (so some findings like first donation attacks would be OOS, and we should check for upgrade issues)? Or both?
+
+{Reactions}
+👀 
+
+[08/01/2024 12:19] julianmrodri
+Never seen this. thanks for letting us know.
+
+
+[08/01/2024 12:20] julianmrodri
+Both are relevant, upgrades to existing RToken and new freshly deployed RTokens!
+
+{Reactions}
+🔥 
+
+[08/01/2024 13:43] mrosas
+@Julian | Reserve PM THX
+
+
+[08/01/2024 15:27] infectedfuture
+anyone having that issue ? working on wsl if its relevant
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - reserve-jul29 [1266396654630735956].txt_Files/image-93797.png
+
+
+[08/01/2024 15:30] julianmrodri
+Try increasing the heap size by adding this env var when running commands `NODE_OPTIONS: '--max-old-space-size=32768'` (could also be 16 gb should do it)
+
+{Reactions}
+❤️ 
+
+[08/01/2024 15:30] julianmrodri
+We use that in many of our CI scripts and sometimes locally as well
+
+
+[08/01/2024 15:36] infectedfuture
+works like a charm, thanks 🙏
+
+
+[08/01/2024 17:51] tamayonft
+bassicly yes because the p1 folder contain the heavy logic of the project and tokens contract are in scope too
+
+
+[08/01/2024 17:53] tamayonft
+bassicly all the file are in the scope even libraries and mix @Julian | Reserve is tha true?
+
+
+[08/01/2024 18:00] tamayonft
+Is not the RSR in scope?
+
+
+[08/01/2024 18:04] julianmrodri
+Yes of course anything in p1 plus libraries and mixins is part of the core logic.
+
+
+[08/01/2024 18:04] julianmrodri
+The RSR ERC20 Token is not in scope, thats in a separate repo
+
+
+[08/03/2024 08:19] viraz4331
+@Julian | Reserve @Akshat | Reserve could check the pvt thread
+
+{Reactions}
+✅ 
+
+[08/04/2024 07:36] tim_peng.
+Started a thread.
+
+
+[08/05/2024 02:40] tamayonft
+is the broker and the distributor specific for each rtoken rigth?
+
+
+[08/05/2024 06:48] _rickk137
+yes
+
+
+[08/05/2024 09:08] gscoder
+does anyone build a  foundry testing repo
+thanks
+
+{Reactions}
+😢 
+
+[08/05/2024 11:17] gscoder
+developer documenation error ?
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - reserve-jul29 [1266396654630735956].txt_Files/20240805-1116-39.7816540-4E3B9.mp4
+
+
+[08/05/2024 13:54] julianmrodri
+We'll check this
+
+
+[08/07/2024 01:14] gscoder
+@Julian | Reserve Could you please provide the latest white paper?
+
+
+[08/07/2024 03:51] naties29
+Hey yall, is there currently known issues deemed out of scope for this Audit?
+
+
+[08/07/2024 04:20] akshatmittal
+I'd recommend looking at our documentation, code comments and our website. I don't think we have a whitepaper which accurately describes the current state of the protocol, but I'll confirm it nonetheless.
+
+{Reactions}
+👍 
+
+[08/07/2024 04:21] gscoder
+https://reserve.org/protocol/                ?
+
+{Embed}
+https://reserve.org/protocol/
+Reserve Protocol Docs
+
+
+[08/07/2024 04:22] akshatmittal
+Any issue mentioned in the C4 Readme mentioned explicitly by the team, previously reported via Immunifi and any issue mentioned in any previous reports is considered out-of-space/known-issues. (You should be able to find all of it in our repo, or audit reports)
+
+{Reactions}
+🫡 
+
+[08/07/2024 04:22] akshatmittal
+This, along with the protocol repo docs. (plus each contract has it's own comments)
+
+{Reactions}
+👍 
+
+[08/07/2024 05:09] 0xrishabh
+https://reserve.org/protocol/2021_version/
+
+The link from readme is not working
+
+
+[08/07/2024 08:22] ev_om
+Hey team, could you confirm that the [ERC-20 behaviours in scope](https://github.com/code-423n4/2024-07-reserve?tab=readme-ov-file#erc20-token-behaviors-in-scope) apply to all external assets used in the system, but not to RToken/stRSR/RSR?
+
+{Reactions}
+✅ 
+
+[08/07/2024 08:40] akshatmittal
+Correct.
+
+
+[08/07/2024 08:45] 0xauditism
+why doesn't deployer deploy StRSRP1Votes instead of stRSR ?
+
+
+[08/07/2024 09:13] akshatmittal
+It does deploy StRSRP1Votes, it's just named stRSR in the Components structure. Additionally, `StRSRP1` isn't deployable by itself since it's marked abstract.
+
+{Reactions}
+✅ (4) 
+
+[08/09/2024 03:21] tamayonft
+Someone getting Javascript heap out of memory error?
+
+
+[08/09/2024 03:26] tbrent
+https://discord.com/channels/810916927919620096/1266396654630735956/1268591682912256113
+
+
+[08/09/2024 11:23] gscoder
+@Akshat | Reserve struct BasketRange {
+    uint192 bottom; // {BU}
+    uint192 top; // {BU}
+}
+bottom means less baskets
+top means high baskets?
+
+
+[08/09/2024 11:37] akshatmittal
+See the comment on top of `basketsHeldBy` function.
+
+Basically, `bottom` refers to the _whole_ basket units held, so the minimum or the bottom of what is held. Whereas `top` refers to how many _partial_ baskets can be formed with the available balance, so the max of possible different balances. You'd typically care about `bottom` when considering baskets held by an account or by the protocol.
+
+{Reactions}
+👍 (2) 
+
+[08/09/2024 12:20] tamayonft
+Hey thank do much for the answer, idk what really mean that. I got to create a variable call NODE_OPTIONS in my evm file?
+
+
+[08/09/2024 12:30] akshatmittal
+Yes, just add `NODE_OPTIONS='--max-old-space-size=32768'` to your environment.
+
+
+[08/09/2024 12:33] tamayonft
+i did it, it does not work i got to add something in the comman? im runing the test with npx hardhat test
+
+
+[08/09/2024 12:37] akshatmittal
+Try `NODE_OPTIONS='--max-old-space-size=32768' yarn hardhat test` if you're using bash
+
+
+[08/09/2024 12:44] tamayonft
+it work now sr thank so mmuch
+
+
+[08/09/2024 20:11] ebbieaden
+Hi guys. Its my first time texting here but I have been working on the audit for days, I finally get to submit one issue today.
+
+{Reactions}
+👍 (6) 🚀 (5) 👀 (4) 
+
+[08/10/2024 00:13] tamayonft
+is the auth contract not used at all?
+
+
+[08/10/2024 00:14] ililhunterlili
+i remember its used somewhere in the inheritance chain sir
+
+
+[08/10/2024 00:23] tamayonft
+yes i saw now thank so much
+
+{Reactions}
+👍 
+
+[08/11/2024 17:54] aamirusmani1552
+how to run a single test from the codebase?
+I am running the following command but it's not working:
+
+```bash
+npx hardhat test --grep "test_name"
+```
+
+
+[08/11/2024 21:59] akshatmittal
+`NODE_OPTIONS='--max-old-space-size=32768' yarn hardhat test --grep "test_name"` try that?
+
+
+[08/11/2024 22:00] aamirusmani1552
+Tried. Still same issue. It just says no test to run
+
+
+[08/11/2024 22:00] ililhunterlili
+are you in the proper directory?
+
+
+[08/11/2024 22:00] akshatmittal
+Are you sure the test name is correct? And try specifying the test file as well, might help.
+
+
+[08/11/2024 22:01] aamirusmani1552
+Yes. I can see type definition creation and other things.
+
+{Reactions}
+👍 
+
+[08/11/2024 22:01] aamirusmani1552
+I am copy pasting it. Tried it multiple times
+
+
+[08/11/2024 22:02] akshatmittal
+What's the error/issue?
+
+
+[08/11/2024 22:02] aamirusmani1552
+No error. Just says ran 0 test
+
+
+[08/11/2024 22:02] aamirusmani1552
+Something like that
+
+
+[08/11/2024 22:04] akshatmittal
+That usually means the test name is incorrect, but if you say that's correct then I'm not sure what's going on especially since others aren't having this issue.
+
+
+[08/11/2024 22:08] aamirusmani1552
+It just causing issue when running one test. Otherwise works normally. For whole Testsuite.
+
+
+[08/11/2024 22:09] aamirusmani1552
+I am windows. But tried wsl as well. Was getting heap issue on wsl but after fixing it as you said, still same issue.
+
+
+[08/11/2024 23:10] 0xstalin
+maybe you have a test with the `only()` keyword, and when you try to run a different test with grep, hardhat ignores it bcs of the only keyword not been applied to the test you want to run?
+
+
+[08/12/2024 05:10] blockchain555
+hey @Akshat | Reserve would you please check my private thread?
+
+
+[08/12/2024 06:42] kriko.eth
+@Aamir try running all the tests and add `.only()` to the one you want to run
+
+
+[08/12/2024 08:22] 4gontuk
+@Akshat | Reserve kindly check PT
+
+
+[08/12/2024 10:17] aamirusmani1552
+how do i have to use that? because when i use it on `it` block, it runs every test from other `describe` blocks but only runs the one i marked in that block. applying `only` directly to `describe` block  still runs every test from other `describe` blocks. could you plz tell how to use it properly
+
+
+[08/12/2024 10:20] aamirusmani1552
+does `--grep=""` works for you? I have used hardhat before and it used to work fine. But don't know what is happening now
+
+
+[08/12/2024 10:24] aamirusmani1552
+nvm worked. Applied directly to the top most parent `describe` block and it worked. Thanks
+
+
+[08/13/2024 02:29] drandkid
+@Akshat | Reserve Quick question; what would be considered a high or medium bug for this audit?
+
+
+[08/13/2024 05:58] prasadlak
+@Akshat | Reserve Pls check this private thread. https://discord.com/channels/810916927919620096/1272794680970575944
+
+
+[08/13/2024 07:32] aamirusmani1552
+@Akshat | Reserve is there a limit on the length of the test? I am trying to write one test and it was working fine before. But after adding little bit more code, it gives the message `Killed` and terminates the process. 
+
+Also it looks like in this case, hardhat tries to rerun the test multiple times. Any solution for that?
+
+
+[08/13/2024 09:13] kartoonjoy
+Hi @lola please use this doc as a guide for determining issue categorization. 
+
+https://docs.code4rena.com/awarding/judging-criteria/severity-categorization
+
+{Embed}
+https://docs.code4rena.com/awarding/judging-criteria/severity-categorization
+Severity Categorization | Code4rena
+
+
+[08/13/2024 09:34] drandkid
+Thanks
+
+{Reactions}
+hi5 (2) 
+
+[08/13/2024 12:43] tamayonft
+sorry for this silly question but what is the purpose of the manageTokens function in the revenueTrader?
+
+
+[08/13/2024 12:58] ililhunterlili
+if baskets held > baskets needed in backingManager, we forward the extra collateral to revenueTrader through `forwardrevenue` in backingManager contract
+
+Then we want to open auction Trade on those collateral, or distribute them if they are the `TokenToBuy` , since its no sense to trade the token that we actually want to buy as protocol
+
+
+[08/13/2024 13:02] tamayonft
+Make sense thank so much
+
+{Reactions}
+🫡 
+
+[08/13/2024 15:21] akshatmittal
+There shouldn't be. You can set test retries to 0 and try again, but we have some massive tests in there. Maybe it's your OS thing because "Killed" is usually not a program limit but an OS limit.
+
+
+[08/13/2024 15:23] aamirusmani1552
+I am using wsl because not able to run a test using cmd. How do i solve it. Do you know a way?
+
+
+[08/14/2024 18:36] 4gontuk
+@Akshat | Reserve ser check PT
+
+{Reactions}
+✅ (3) 
+
+[08/17/2024 05:00] tim_peng.
+641 passing (13m)
+  326 pending  hi does anyone know what the meaning of pending here after running the test command? I removed all the snaoshots files, but the pending message pessists
+
+
+[08/17/2024 05:01] ililhunterlili
+have you configured the .env?
+
+
+[08/17/2024 08:18] drandkid
+what is the difference between the assetRegistry and assetPluginRegistry?
+
+
+[08/17/2024 10:48] tim_peng.
+no I didn't. how should I? I did not seem to see the changes to .env mentioned in the repo
+
+
+[08/17/2024 10:50] aamirusmani1552
+check if you have .env.example. Rename it to .env and fill out all the variables and then run the test
+
+{Reactions}
+thankyou 
+
+[08/17/2024 13:13] tim_peng.
+641 passing (13m)
+  326 pending  still got this message after I filled the mainnet api
+
+
+[08/17/2024 16:48] kriko.eth
+there is a line in .env with FORK=1 try uncommenting it
+
+
+[08/18/2024 02:41] tamayonft
+what chains is the project deployed on?
+
+
+[08/18/2024 02:41] ililhunterlili
+
+
+{Attachments}
+Code4rena - ARCHIVE-PUBLIC - reserve-jul29 [1266396654630735956].txt_Files/image-B6BDD.png
+
+
+[08/18/2024 17:54] tamayonft
+Sorry i was looking in the c4 repo but didnt see it
+
+{Reactions}
+👍 (2) 
+
+[08/18/2024 17:54] ililhunterlili
+all good
+
+
+[08/19/2024 11:14] eren.eth
+@Akshat | Reserve Sorry if this has been asked before, how would you handle a report sent from Immunefi during the contest? If it was reported on Code4rena, would you give OOS on Immunefi or vice versa?
+
+
+[08/19/2024 11:18] akshatmittal
+Issues reported on Immunefi are OOS for this contest, those reports will only be considered on Immunefi. (There's one exception, which is if the issue _specifically_ creates _another_ issue due to the changes made in this version of the code)
+
+
+[08/19/2024 11:19] eren.eth
+Ok thanks :PepeHeart:
+
+
+[08/19/2024 12:27] 0xpessimist
+I'd appreciate it if you could check the pvt thread!
+
+{Reactions}
+✅ (3) 
+
+[08/19/2024 18:58] tamayonft
+Bet that 400-  submission
+
+
+[08/19/2024 19:00] tamayonft
+Im done with this contest yet give some headpain after this contest everything looks so easy xd, thanks so much for the sponsors 🙏
+
+{Reactions}
+👍 
+
+[08/19/2024 20:02] C4
+**🚨 AUDIT ALERT**
+
+@🐺Wardens The **Reserve Core** audit is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: The sponsor team and judge will review the findings over the next couple of weeks. Feel free to ping a Civics-Admin if you have questions along the way!
+
+
+[08/19/2024 20:24] julianmrodri
+Thanks everyone for participating!!
+
+{Reactions}
+💜 (10) 🔏 (2) 
+
+[08/19/2024 22:49] stuart_the_minion
+How many total submissions?
+
+
+[08/19/2024 23:43] aerialraider
+did anybody else use echidna for all there testing?
+
+
+[08/20/2024 07:16] 0xpopeye
+259+51
+
+{Reactions}
+🫡 (4) 
+
+[08/21/2024 20:21] mansa11
+Has validation started?
+
+{Reactions}
+👍 ✅ (2) 
+
+[08/27/2024 23:55] ebbieaden
+Is it normal if I can no longer access my submission? @Akshat | Reserve
+
+
+[08/27/2024 23:56] ebbieaden
+I just tried checking I can't find my submitted findings
+
+
+[08/27/2024 23:56] itsmetechjay
+that is correct - you cannot view/edit your submissions once the audit is over.
+
+
+[08/28/2024 07:20] ruan_53970
+Any news on Reserve Core
+
+
+[08/28/2024 12:44] tamayonft
+i would ask the same
+
+
+[08/29/2024 20:40] tamayonft
+is there anyone that could share the excel used to for validators
+
+
+[08/29/2024 20:40] tamayonft
+?
+
+
+[08/29/2024 21:24] thebrittfactor
+I believe you can view the PRs [here](https://github.com/code-423n4/2024-07-reserve-validation/pulls) as SR.
+
+
+[09/03/2024 07:30] mansa11
+Is PJQA started?
+
+
+[09/05/2024 22:51] ebbieaden
+Alright, thank you
+
+
+[09/06/2024 20:35] thebrittfactor
+🤑 🎉  Awards for **Reserve Core**:
+
+$92,131.56 USDC » RadiantLabs (@EV_om and @3DOC)
+$31,833.05 USDC » @krikolkk
+$12,126.09 USDC » @ether_sky
+$6,644.24 USDC » @Bauchibred
+$3,286.70 USDC » @0xStuart
+$974.36 USDC » Shield (@Dravee, @0xA5DF, @Viraz, @Udsen and @ElGreenGoblino)
+
+🏁 Findings summary
+--------------------------------------
+7 Med risk findings
+77 wardens contributed
+
+Top Hunter: RadiantLabs
+Top Gatherer: RadiantLabs
+Dark Horse: krikolkk, ether_sky, Bauchibred and stuart_the_minion
+Top QA report: RadiantLabs
+
+Awards will be distributed on Polygon. Congratulations all!  💸 💸 💸
+
+⚠️ Awardees, be sure to review [this announcement](https://discord.com/channels/810916927919620096/810929015509483554/1272625452909072415) and fill in your tax info if you haven't already. This must be completed within 30 days (i.e. before Saturday, 05 October 2024) to receive your award distribution for this audit.
+
+*Note: If you participated in this audit and don’t see your name on this list, please wait until the report is published and the findings repo is made public to check on your submissions.*
+
+*Also, the leaderboard will be updated at a later point in time.*
+
+{Reactions}
+🔥 (4) 
+
+[09/06/2024 20:37] haxatron1
+Holy macaronis
+
+{Reactions}
+😂 (3) 
+
+[09/06/2024 20:37] haxatron1
+Congratulations @EV_om and @3DOC :STRONGERS_OP:
+
+{Reactions}
+pepe_heart (4) 
+
+[09/06/2024 20:38] haxatron1
+Congratulations @krikolkk :dogeSwole:
+
+{Reactions}
+💛 
+
+[09/06/2024 20:38] haxatron1
+Congratulations @ether_sky :DevCat:
+
+{Reactions}
+🙏 (2) 
+
+[09/06/2024 20:49] 0xjuancito
+You're true legends @EV_om @3DOC 🏆
+
+{Reactions}
+💜 (3) 
+
+[09/06/2024 20:55] t1moh
+@3DOC @EV_om impressive results!
+
+{Reactions}
+💜 (2) 
+
+[09/06/2024 21:05] mctoady
+can someone stop them plz :kek:
+
+{Reactions}
+😂 
+
+[09/06/2024 21:07] 0xjuancito
+Can auditors do something? 😁
+
+{Reactions}
+🆘 (2) 
+
+[09/06/2024 22:00] sin1st3r__
+Massive congrats kings @EV_om @3DOC 👑 Nothing lesser than that was expected really 🔝🔝
+
+{Reactions}
+💜 (3) 
+
+[09/06/2024 22:59] skodinger
+0x52 didnt even try?
+
+{Reactions}
+💀 (4) kewk (3) 😂 (3) 
+
+[09/08/2024 07:30] mylifechangefast.eth_70767
+God
+
+
+[09/08/2024 07:30] mylifechangefast.eth_70767
+@EV_om  are you human?
+
+{Reactions}
+peepoBigNo (2) 
+
+[09/09/2024 06:52] spomaria
+Congratulations @EV_om and @3DOC  and all the top awardees
+
+{Reactions}
+💜 
+
+[09/11/2024 17:23] viraz4331
+Hi,
+have the rewards been sent ?
+
+
+[09/11/2024 18:49] thebrittfactor
+We haven't sent these out just yet.
+
+
+[09/15/2024 10:11] stuart_the_minion
+Still not sent?
+
+{Reactions}
+👆 
+
+[09/16/2024 12:52] thebrittfactor
+I've pinged our payments team to see when we could get these out. Appreciate everyones patience!
+
+
+[09/23/2024 04:37] viraz4331
+any upate on this ?
+
+
+[09/23/2024 13:45] thebrittfactor
+Started a thread.
+
+
+[09/30/2024 13:41] itsmetechjay
+ℹ️ This channel is pending archive.   As a result, any private threads will be permanently deleted on Friday, 11 October 2024.  Please make sure to grab anything you might need before then.
+
+
+[10/10/2024 22:13] itsmetechjay
+ℹ️ Reminder: this channel will be deleted after 24 hours.
+
+
+==============================================================
+Exported 193 message(s)
+==============================================================
